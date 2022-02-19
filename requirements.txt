@@ -1,0 +1,4 @@
+psycopg2-binary
+django
+django-cockroachdb
+dj-database-url
