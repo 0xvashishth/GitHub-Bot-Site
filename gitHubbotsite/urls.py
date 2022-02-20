@@ -19,10 +19,13 @@ from botsite import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',views.list_users,name='list_users'),
+    path('list_users/',views.list_users,name='list_users'),
     path('create/',views.create_users,name='create_users'),
     path('<id>/',views.detail_users,name='detail_users'),
     path('<id>/update',views.update_users,name='update_users'),
     path('<id>/delete',views.delete_users,name='delete_users'),
     path('file_path',views.get_path,name='show_path'),
+    path('',views.index,name='index'),
+    path('registered',views.registered,name='registered'),
+    path('login',views.login,name='login'),
 ]
