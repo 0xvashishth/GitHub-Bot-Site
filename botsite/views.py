@@ -24,6 +24,7 @@ def create_users(request):
 
 	if form.is_valid():
 		form.save()
+		return HttpResponseRedirect("/")
 
 
 	context['form']= form
@@ -53,3 +54,19 @@ def update_users(request,id):
 	context["form"] = form
 
 	return render(request, "update_users.html", context)
+
+
+
+def delete_users(request,id):
+
+	context = {}
+
+	obj = get_object_or_404(users, id=id)
+
+	if request.method == "POST":
+		obj.delete()
+
+		return HttpResponseRedirect("/")
+
+
+	return render(request, "delete_users.html", context)

@@ -23,5 +23,5 @@ urlpatterns = [
     path('create/',views.create_users,name='create_users'),
     path('<id>/',views.detail_users,name='detail_users'),
     path('<id>/update',views.update_users,name='update_users'),
-
+    path('<id>/delete',views.delete_users,name='delete_users'),
 ]
