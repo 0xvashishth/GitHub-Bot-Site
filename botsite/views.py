@@ -1,7 +1,9 @@
 from django.shortcuts import render
 from django import forms
 from .forms import UsersForm
+from django.http import HttpResponseRedirect
 # from . import forms
+from django.shortcuts import get_list_or_404, get_object_or_404
 from .models import users,orders
 
 
@@ -26,3 +28,28 @@ def create_users(request):
 
 	context['form']= form
 	return render(request,"create_users.html", context)
+
+
+def detail_users(request,id):
+
+	context={}
+	context['data']=users.objects.get(id = id)
+	return render(request,"detail_users.html", context)
+
+
+def update_users(request,id):
+
+	context={}
+	obj = get_object_or_404(users,id=id)
+
+	form = UsersForm(request.POST or None , instance = obj)
+
+
+	if form.is_valid():
+		form.save()
+		return HttpResponseRedirect("/"+id)
+
+
+	context["form"] = form
+
+	return render(request, "update_users.html", context)

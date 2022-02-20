@@ -3,22 +3,19 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>List Users</title>
+	<title>Update Users</title>
 </head>
 <body>
 
+
 <div class="main">
-	
-	{% for data in dataset %}
+	<form method="post">
+		{% csrf_token %}
 
-	{{data.id}}<br>
-	{{data.name}}<br>
-	{{data.email}}<br>
+		{{form.as_p}}
 
-	<hr>
-
-	{% endfor %}
-	
+		<input type="submit" value="Update">
+	</form>
 </div>
 
 </body>

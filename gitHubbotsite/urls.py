@@ -21,5 +21,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('',views.list_users,name='list_users'),
     path('create/',views.create_users,name='create_users'),
+    path('<id>/',views.detail_users,name='detail_users'),
+    path('<id>/update',views.update_users,name='update_users'),
 
 ]
