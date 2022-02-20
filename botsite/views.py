@@ -5,7 +5,7 @@ from django.http import HttpResponseRedirect
 # from . import forms
 from django.shortcuts import get_list_or_404, get_object_or_404
 from .models import users,orders
-
+import os
 
 def list_users(request):
 
@@ -70,3 +70,12 @@ def delete_users(request,id):
 
 
 	return render(request, "delete_users.html", context)
+
+
+def get_path(request):
+
+	context = {}
+
+	context["fil_path"] =  __file__
+
+	return render(request,"show_path.html", context)

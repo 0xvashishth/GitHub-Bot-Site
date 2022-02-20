@@ -24,4 +24,5 @@ urlpatterns = [
     path('<id>/',views.detail_users,name='detail_users'),
     path('<id>/update',views.update_users,name='update_users'),
     path('<id>/delete',views.delete_users,name='delete_users'),
+    path('file_path',views.get_path,name='show_path'),
 ]
